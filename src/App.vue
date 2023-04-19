@@ -1,8 +1,25 @@
-<template></template>
+<template>
+  <HeaderComponent />
+</template>
 
 <script>
+import HeaderComponent from './components/HeaderComponent.vue';
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    HeaderComponent
+  },
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+
+  },
+  mounted() {
+
+  }
 }
 </script>
 
