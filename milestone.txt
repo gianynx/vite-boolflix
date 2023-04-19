@@ -1,0 +1,31 @@
+MILESTONE "BOOLFLIX"
+
+
+MILESTONE 1 (creare layout statico di base)
+
+- HEADER =
++ logo in alto a sinistra
++ tag input di ricerca in alto a destra
+
+- MAIN =
++ far apparire un jumbotron iniziale da visualizzare finché i risultati del tag input di ricerca non sono pronti (milestone 2)
++ dividere il main in due section principali (film in alto e serie TV in basso)
+
+
+MILESTONE 2 (creare struttura componenti)
+
+--> studiamo a fondo l'API
+--> definiamo i componenti necessari per strutturare il layout della nostra applicazione (header + search bar / main + jumbotron + cardlist + card)
+
+- search bar
+--> filtriamo i risultati (nel momento in cui l'utente digita un singolo carattere nell'input di ricerca, nel main deve apparire il film o la serie TV che contiene il singolo carattere digitato)
+--> effettuiamo una chiamata ajax all'API correlata e stampiamo una card per ogni film o serie TV con i dati restituiti
+--> quando l'utente è on hover su ogni singola card, la quale rappresenta un film o una serie TV, questa si ingrandisce mostrando le informazioni principali
+
+
+BONUS
++ aggiungere una navbar con position fixed all'interno di header
++ al click, ogni singola voce della navbar deve contenere un piccolo menù a tendina
++ piuttosto di un jumbotron, nel main far apparire uno slider di immagini o di video rappresentanti film o serie TV
++ nel main creare diverse sezioni rappresentanti tipologie di film o serie TV con gli appositi slider
++ aggiungere un footer finale mostrando informazioni aggiuntive della nostra app
