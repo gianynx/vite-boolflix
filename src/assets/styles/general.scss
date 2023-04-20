@@ -1,2 +1,6 @@
 @use './partials/_variables' as *;
 @import 'bootstrap/scss/bootstrap';
+
+header {
+    background-color: $header_bg_color;
+}
