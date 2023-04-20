@@ -4,12 +4,10 @@
             <div id="logo_container">
                 <a href="#"><img class="w-100" src="../img/boolflix.png" alt="boolflix_logo"></a>
             </div>
-            <div id="input_container">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="search" v-model="store.params.query"
-                        @keyup.enter="$emit('onSearch')">
-                    <button class="btn btn-danger" type="submit" @click="$emit('onSearch')">search</button>
-                </form>
+            <div id="input_container" class="d-flex">
+                <input class="form-control me-2" placeholder="search" v-model="store.params.query"
+                    @keyup.enter="$emit('onSearch')">
+                <button class="btn btn-danger" @click="$emit('onSearch')">search</button>
             </div>
         </div>
     </header>
