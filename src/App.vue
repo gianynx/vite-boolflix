@@ -1,5 +1,15 @@
 <template>
   <HeaderComponent />
+  <main>
+    <ul>
+      <li v-for="movie in store.movies">
+        {{ movie.title }}
+        {{ movie.original_title }}
+        {{ movie.original_language }}
+        {{ movie.vote_average }}
+      </li>
+    </ul>
+  </main>
 </template>
 
 <script>
@@ -13,17 +23,18 @@ export default {
   },
   data() {
     return {
-
+      store
     }
   },
   methods: {
     getMovies() {
       const url = store.baseURL + store.endpoint.movie;
-      const options = {
-        queryString: store.queryString
+      const queryString = {
+        params: store.params
       }
-      axios.get(url, options).then((res) => {
-        console.log(res.data);
+      axios.get(url, queryString).then((res) => {
+        console.log(res.data.results);
+        store.movies = res.data.results;
       });
     }
   },
