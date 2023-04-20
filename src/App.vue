@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent />
+  <HeaderComponent @on-search="getMovies()" />
   <main>
     <ul>
       <li v-for="movie in store.movies">
@@ -33,13 +33,13 @@ export default {
         params: store.params
       }
       axios.get(url, queryString).then((res) => {
-        console.log(res.data.results);
+        // console.log(res.data.results);
         store.movies = res.data.results;
       });
     }
   },
   mounted() {
-    this.getMovies();
+
   }
 }
 </script>
