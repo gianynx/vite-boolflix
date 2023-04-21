@@ -20,7 +20,7 @@ export default {
     data() {
         return {
             availableFlags: [
-                'en', 'es', 'it', 'ja', 'us', 'kn'
+                'en', 'es', 'it', 'ja', 'us', 'kn', 'ko', 'tr', 'ru', 'id', 'de'
             ]
         }
     }
