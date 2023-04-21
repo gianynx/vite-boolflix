@@ -1,14 +1,16 @@
 <template>
   <HeaderComponent @on-search="getMovies()" />
-  <main class="container pt-5">
-    <section>
-      <h2 class="fw-bold text-center">Movies</h2>
-      <div class="row">
-        <CardComponent />
+  <main class="pt-5">
+    <section class="container pb-5">
+      <h2 class="fw-bold text-center pb-4 text-white">Movies</h2>
+      <div class="row gy-4">
+        <CardComponent v-for="(card, index) in store.movies" :key="card.id" :title="card.title"
+          :original_title="card.original_title" :original_language="card.original_language"
+          :vote_average="card.vote_average" />
       </div>
     </section>
-    <section>
-      <h2 class="fw-bold text-center">TV Series</h2>
+    <section class="container">
+      <h2 class="fw-bold text-center pb-4 text-white">TV Series</h2>
     </section>
   </main>
 </template>
