@@ -3,14 +3,14 @@
         <div class="card p-3">
             <ul class="list-unstyled text-white">
                 <div id="img_container">
-                    <img class="w-100" :src="store.imgPath + store.imgSize + image" alt="">
+                    <img class="img-fluid" :src="store.imgPath + store.imgSize + image" alt="">
                 </div>
                 <div id="info_container" class="pt-3 text-center">
                     <li class="fs-5">{{ title }}</li>
                     <li class="pt-1">
                         <img class="flag_img" :src="'/flag_icons/' + original_language + '.png'" :alt="original_language">
                     </li>
-                    <li class="pt-1">Vote: {{ vote_average }}</li>
+                    <li class="pt-1">Vote average: {{ vote_average }}</li>
                 </div>
             </ul>
         </div>
@@ -36,12 +36,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.flag_img {
-    width: 20px;
-    height: 20px;
-}
-
 .card {
     height: 36rem;
+
+    img {
+        height: 351px;
+    }
+
+    .flag_img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .card {
+        width: 320px;
+        margin: 0 auto;
+    }
+
+    #img_container img {
+        width: 300px;
+    }
 }
 </style>
