@@ -10,7 +10,13 @@
                     <div class="pt-1">
                         <img class="flag_img" :src="'/flag_icons/' + original_language + '.png'" :alt="original_language">
                     </div>
-                    <div class="pt-1">Vote average: {{ vote_average }}</div>
+                    <div class="pt-1">
+                        Vote average: {{ stars }}
+                    </div>
+                    <div class="pt-1">
+                        <i class="fa-star" v-for="(star, index) in 5" :key="index"
+                            :class="star <= stars ? 'fa-solid' : 'fa-regular'"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,6 +36,11 @@ export default {
             availableFlags: [
                 'en', 'es', 'it', 'ja', 'us', 'kn', 'ko', 'tr', 'ru', 'id', 'de', 'zh', 'ar', 'hi'
             ]
+        }
+    },
+    computed: {
+        stars() {
+            return Math.round(this.vote_average / 2);
         }
     }
 }
