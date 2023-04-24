@@ -19,7 +19,7 @@
                     </div>
                     <div class="pt-3 overflow-auto" v-if="overview">
                         <h2 class="fs-4">Overview:</h2>
-                        <p class="overview_section">{{ overview }}</p>
+                        <p class="overview_section p-2">{{ overview }}</p>
                     </div>
                 </div>
             </div>
