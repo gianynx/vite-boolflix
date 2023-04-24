@@ -5,14 +5,16 @@
       <h2 class="fw-bold text-center pb-4 text-white">Movies</h2>
       <div class="row gy-4">
         <CardComponent v-for="(card, index) in store.movies" :key="card.id" :title="card.title"
-          :original_language="card.original_language" :vote_average="card.vote_average" :image="card.poster_path" />
+          :original_language="card.original_language" :vote_average="card.vote_average" :image="card.poster_path"
+          :overview="card.overview" />
       </div>
     </section>
     <section class="container pb-5">
       <h2 class="fw-bold text-center pb-4 text-white">TV Series</h2>
       <div class="row gy-4">
         <CardComponent v-for="(card, index) in store.tvShow" :key="card.id" :title="card.name"
-          :original_language="card.original_language" :vote_average="card.vote_average" :image="card.poster_path" />
+          :original_language="card.original_language" :vote_average="card.vote_average" :image="card.poster_path"
+          :overview="card.overview" />
       </div>
     </section>
   </main>
