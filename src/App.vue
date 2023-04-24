@@ -7,6 +7,9 @@
         <CardComponent v-for="(card, index) in store.movies" :key="card.id" :title="card.title"
           :original_language="card.original_language" :vote_average="card.vote_average" :image="card.poster_path"
           :overview="card.overview" />
+        <div class="alert alert-danger" v-if="store.loaders.movies">
+          Loading...
+        </div>
       </div>
     </section>
     <section class="container pb-5">
@@ -15,6 +18,9 @@
         <CardComponent v-for="(card, index) in store.tvShow" :key="card.id" :title="card.name"
           :original_language="card.original_language" :vote_average="card.vote_average" :image="card.poster_path"
           :overview="card.overview" />
+        <div class="alert alert-danger" v-if="store.loaders.tvShow">
+          Loading...
+        </div>
       </div>
     </section>
   </main>
@@ -38,32 +44,35 @@ export default {
   },
   methods: {
     getMovies() {
-      const url = store.baseURL + store.endpoint.movie;
+      const url = this.store.baseURL + this.store.endpoint.movie;
       const queryString = {
-        params: store.params
+        params: this.store.params
       }
       axios.get(url, queryString).then((res) => {
         // console.log(res.data.results);
-        store.movies = res.data.results;
+        this.store.movies = res.data.results;
+      }).finally(() => {
+        this.store.loaders.movies = false
       });
     },
     getTvShow() {
-      const url = store.baseURL + store.endpoint.tvShow;
+      const url = this.store.baseURL + this.store.endpoint.tvShow;
       const queryString = {
-        params: store.params
+        params: this.store.params
       }
       axios.get(url, queryString).then((res) => {
         // console.log(res.data.results);
-        store.tvShow = res.data.results;
+        this.store.tvShow = res.data.results;
+      }).finally(() => {
+        this.store.loaders.tvShow = false
       });
     },
     getData() {
+      this.store.loaders.movies = true;
+      this.store.loaders.tvShow = true;
       this.getMovies();
       this.getTvShow();
     }
-  },
-  mounted() {
-
   }
 }
 </script>

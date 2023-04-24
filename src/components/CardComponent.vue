@@ -3,7 +3,8 @@
         <div class="flip_card">
             <div class="flip_card_inner">
                 <div class="img_container">
-                    <img class="img-fluid" :src="store.imgPath + store.imgSize + image" alt="">
+                    <img class="img-fluid" :src="(image) ? store.imgPath + store.imgSize + image : '/fake.png/'"
+                        :alt="title">
                 </div>
                 <div class="info_container pt-3 text-center text-white">
                     <h1 class="fs-3">{{ title }}</h1>
